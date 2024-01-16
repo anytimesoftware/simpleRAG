@@ -10,6 +10,7 @@ SimpleRAG is an AI-powered application that allows users to upload <s>PDF</s>, T
 
 ## Installation
 You will also need llama.cpp server running locally on port 8080
+
 To set up the project locally:
 git clone https://github.com/your-repository/simpleRAG.git
 cd simpleRAG
@@ -27,6 +28,7 @@ Navigate to `http://localhost:3000` to interact with the application.
 - Tailwind CSS
 - ChromaDB
 - OpenAI
+- llama.cpp
 
 ## Contributions
 Contributions are welcome. Please fork the repository and submit a pull request.
