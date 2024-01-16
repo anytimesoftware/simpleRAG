@@ -11,3 +11,715 @@
 [32mINFO[0m:     [13-01-2024 15:12:47] Waiting for application startup.
 [32mINFO[0m:     [13-01-2024 15:12:47] Application startup complete.
 [32mINFO[0m:     [13-01-2024 15:12:47] Uvicorn running on [1mhttp://localhost:8000[0m (Press CTRL+C to quit)
+[31mERROR[0m:    [14-01-2024 19:52:05] Collection test does not exist.
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 80, in catch_exceptions_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 94, in check_http_version_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/auth/fastapi.py", line 234, in wrapped
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 433, in get_collection
+    return self._api.get_collection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/api/segment.py", line 260, in get_collection
+    raise ValueError(f"Collection {name} does not exist.")
+ValueError: Collection test does not exist.
+[32mINFO[0m:     [14-01-2024 19:52:05] ::1:52365 - "GET /api/v1/collections/test?tenant=default_tenant&database=default_database HTTP/1.1" 500
+[32mINFO[0m:     [14-01-2024 20:01:33] Shutting down
+[32mINFO[0m:     [14-01-2024 20:01:33] Waiting for application shutdown.
+[32mINFO[0m:     [14-01-2024 20:01:33] Application shutdown complete.
+[32mINFO[0m:     [14-01-2024 20:01:33] Finished server process [[36m88716[0m]
+[32mINFO[0m:     [14-01-2024 20:01:38] Set chroma_server_nofile to 65535
+[32mINFO[0m:     [14-01-2024 20:01:38] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [14-01-2024 20:01:38] Starting component System
+[36mDEBUG[0m:    [14-01-2024 20:01:38] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [14-01-2024 20:01:38] Starting component SimpleAssignmentPolicy
+[36mDEBUG[0m:    [14-01-2024 20:01:38] Starting component SqliteDB
+[36mDEBUG[0m:    [14-01-2024 20:01:38] Starting component Posthog
+[36mDEBUG[0m:    [14-01-2024 20:01:38] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [14-01-2024 20:01:38] Starting component SegmentAPI
+[32mINFO[0m:     [14-01-2024 20:01:38] Started server process [[36m95842[0m]
+[32mINFO[0m:     [14-01-2024 20:01:38] Waiting for application startup.
+[32mINFO[0m:     [14-01-2024 20:01:38] Application startup complete.
+[32mINFO[0m:     [14-01-2024 20:01:38] Uvicorn running on [1mhttp://localhost:8000[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [14-01-2024 20:12:16] ::1:52653 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[31mERROR[0m:    [14-01-2024 20:13:12] Collection test already exists
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 80, in catch_exceptions_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 94, in check_http_version_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/auth/fastapi.py", line 234, in wrapped
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 408, in create_collection
+    return self._api.create_collection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/api/segment.py", line 166, in create_collection
+    coll, created = self._sysdb.create_collection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/db/mixins/sysdb.py", line 225, in create_collection
+    raise UniqueConstraintError(f"Collection {name} already exists")
+chromadb.db.base.UniqueConstraintError: Collection test already exists
+[32mINFO[0m:     [14-01-2024 20:13:12] ::1:52677 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 500
+[32mINFO[0m:     [15-01-2024 19:48:13] ::1:63839 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[31mERROR[0m:    [15-01-2024 19:49:48] Collection identity_holmes already exists
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 80, in catch_exceptions_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 94, in check_http_version_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/auth/fastapi.py", line 234, in wrapped
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 408, in create_collection
+    return self._api.create_collection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/api/segment.py", line 166, in create_collection
+    coll, created = self._sysdb.create_collection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/db/mixins/sysdb.py", line 225, in create_collection
+    raise UniqueConstraintError(f"Collection {name} already exists")
+chromadb.db.base.UniqueConstraintError: Collection identity_holmes already exists
+[32mINFO[0m:     [15-01-2024 19:49:48] ::1:63849 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 500
+[31mERROR[0m:    [15-01-2024 19:50:40] Collection identity_holmes already exists
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 80, in catch_exceptions_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 94, in check_http_version_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/auth/fastapi.py", line 234, in wrapped
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 408, in create_collection
+    return self._api.create_collection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/api/segment.py", line 166, in create_collection
+    coll, created = self._sysdb.create_collection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/db/mixins/sysdb.py", line 225, in create_collection
+    raise UniqueConstraintError(f"Collection {name} already exists")
+chromadb.db.base.UniqueConstraintError: Collection identity_holmes already exists
+[32mINFO[0m:     [15-01-2024 19:50:40] ::1:63865 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 500
+[32mINFO[0m:     [15-01-2024 19:50:40] ::1:63864 - "DELETE /api/v1/collections/identity_holmes?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[31mERROR[0m:    [15-01-2024 19:51:14] Collection identity_holmes does not exist.
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 80, in catch_exceptions_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 94, in check_http_version_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/auth/fastapi.py", line 234, in wrapped
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 472, in delete_collection
+    return self._api.delete_collection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/api/segment.py", line 346, in delete_collection
+    raise ValueError(f"Collection {name} does not exist.")
+ValueError: Collection identity_holmes does not exist.
+[32mINFO[0m:     [15-01-2024 19:51:14] ::1:63870 - "DELETE /api/v1/collections/identity_holmes?tenant=default_tenant&database=default_database HTTP/1.1" 500
+[32mINFO[0m:     [15-01-2024 19:51:14] ::1:63871 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 19:52:37] ::1:63881 - "DELETE /api/v1/collections/identity_holmes?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 19:52:37] ::1:63882 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 19:54:49] ::1:63910 - "DELETE /api/v1/collections/identity_holmes?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 19:54:49] ::1:63911 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [15-01-2024 19:54:50] Starting component PersistentLocalHnswSegment
+[32mINFO[0m:     [15-01-2024 19:54:50] ::1:63910 - "POST /api/v1/collections/1008cc2a-a266-41cc-a401-caae08974b86/add HTTP/1.1" 201
+[32mINFO[0m:     [15-01-2024 19:57:41] ::1:63936 - "DELETE /api/v1/collections/identity_holmes?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 19:57:41] ::1:63937 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [15-01-2024 19:57:41] Starting component PersistentLocalHnswSegment
+[32mINFO[0m:     [15-01-2024 19:57:41] ::1:63936 - "POST /api/v1/collections/9c2891d4-972e-4460-93b6-3cd28c3ff7e2/add HTTP/1.1" 201
+[32mINFO[0m:     [15-01-2024 19:57:41] ::1:63936 - "POST /api/v1/collections/9c2891d4-972e-4460-93b6-3cd28c3ff7e2/query HTTP/1.1" 200
+[31mERROR[0m:    [15-01-2024 20:06:13] Collection context does not exist.
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 80, in catch_exceptions_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 94, in check_http_version_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/auth/fastapi.py", line 234, in wrapped
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 472, in delete_collection
+    return self._api.delete_collection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/api/segment.py", line 346, in delete_collection
+    raise ValueError(f"Collection {name} does not exist.")
+ValueError: Collection context does not exist.
+[32mINFO[0m:     [15-01-2024 20:06:13] ::1:63995 - "DELETE /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 500
+[32mINFO[0m:     [15-01-2024 20:06:13] ::1:63996 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [15-01-2024 20:06:13] Starting component PersistentLocalHnswSegment
+[32mINFO[0m:     [15-01-2024 20:06:13] ::1:63995 - "POST /api/v1/collections/49bcf793-b507-40af-9207-353e065c1a70/add HTTP/1.1" 201
+[31mERROR[0m:    [15-01-2024 20:06:22] Collection context already exists
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 80, in catch_exceptions_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 94, in check_http_version_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/auth/fastapi.py", line 234, in wrapped
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 408, in create_collection
+    return self._api.create_collection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/api/segment.py", line 166, in create_collection
+    coll, created = self._sysdb.create_collection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 127, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jordansalvi/miniconda3/lib/python3.11/site-packages/chromadb/db/mixins/sysdb.py", line 225, in create_collection
+    raise UniqueConstraintError(f"Collection {name} already exists")
+chromadb.db.base.UniqueConstraintError: Collection context already exists
+[32mINFO[0m:     [15-01-2024 20:06:22] ::1:64004 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 500
+[32mINFO[0m:     [15-01-2024 20:06:42] ::1:64010 - "GET /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:06:43] ::1:64010 - "POST /api/v1/collections/49bcf793-b507-40af-9207-353e065c1a70/query HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:07:23] ::1:64035 - "DELETE /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:07:23] ::1:64036 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [15-01-2024 20:07:23] Starting component PersistentLocalHnswSegment
+[32mINFO[0m:     [15-01-2024 20:07:23] ::1:64035 - "POST /api/v1/collections/e807eac7-2464-4f41-a67c-520d9bcdd36f/add HTTP/1.1" 201
+[32mINFO[0m:     [15-01-2024 20:07:30] ::1:64043 - "GET /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:07:30] ::1:64043 - "POST /api/v1/collections/e807eac7-2464-4f41-a67c-520d9bcdd36f/query HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:09:07] ::1:64065 - "GET /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:09:07] ::1:64065 - "POST /api/v1/collections/e807eac7-2464-4f41-a67c-520d9bcdd36f/query HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:10:04] ::1:64086 - "GET /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:10:04] ::1:64086 - "POST /api/v1/collections/e807eac7-2464-4f41-a67c-520d9bcdd36f/query HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:14:46] ::1:64167 - "DELETE /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:14:46] ::1:64168 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [15-01-2024 20:14:47] Starting component PersistentLocalHnswSegment
+[32mINFO[0m:     [15-01-2024 20:14:47] ::1:64167 - "POST /api/v1/collections/645cc5d6-efd3-4d0b-a9e4-75e6c317e255/add HTTP/1.1" 201
+[32mINFO[0m:     [15-01-2024 20:14:58] ::1:64173 - "GET /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:14:59] ::1:64173 - "POST /api/v1/collections/645cc5d6-efd3-4d0b-a9e4-75e6c317e255/query HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:15:47] ::1:64178 - "GET /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:15:47] ::1:64178 - "POST /api/v1/collections/645cc5d6-efd3-4d0b-a9e4-75e6c317e255/query HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:16:05] ::1:64187 - "GET /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:16:05] ::1:64187 - "POST /api/v1/collections/645cc5d6-efd3-4d0b-a9e4-75e6c317e255/query HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:22:48] ::1:64222 - "GET /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:23:41] ::1:64228 - "GET /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:23:49] ::1:64232 - "POST /api/v1/collections/645cc5d6-efd3-4d0b-a9e4-75e6c317e255/query HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:25:02] ::1:64264 - "GET /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:25:10] ::1:64268 - "POST /api/v1/collections/645cc5d6-efd3-4d0b-a9e4-75e6c317e255/query HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:25:38] ::1:64273 - "GET /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:25:43] ::1:64273 - "POST /api/v1/collections/645cc5d6-efd3-4d0b-a9e4-75e6c317e255/query HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:26:28] ::1:64288 - "GET /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:27:12] ::1:64298 - "GET /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:28:11] ::1:64307 - "GET /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:28:16] ::1:64311 - "POST /api/v1/collections/645cc5d6-efd3-4d0b-a9e4-75e6c317e255/query HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:28:51] ::1:64313 - "GET /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:28:55] ::1:64313 - "POST /api/v1/collections/645cc5d6-efd3-4d0b-a9e4-75e6c317e255/query HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:29:16] ::1:64318 - "GET /api/v1/collections/context?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [15-01-2024 20:29:20] ::1:64318 - "POST /api/v1/collections/645cc5d6-efd3-4d0b-a9e4-75e6c317e255/query HTTP/1.1" 200

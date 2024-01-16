@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { useChat } from 'ai/react';
+import Link from 'next/link';
 
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
@@ -42,6 +43,7 @@ export default function Chat() {
           Send
         </button>
       </form>
+      <Link href="/upload">Upload context document</Link>
     </div>
   );
 }
