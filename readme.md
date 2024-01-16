@@ -9,9 +9,10 @@ SimpleRAG is an AI-powered application that allows users to upload <s>PDF</s>, T
 - **Chunking**: Processes the uploaded documents into manageable chunks for easier analysis.
 
 ## Installation
-You will also need llama.cpp server running locally on port 8080
+You will also need llama.cpp server running locally on port 8080 and chromadb running on port 8000
 
 To set up the project locally:
+
 git clone https://github.com/your-repository/simpleRAG.git
 cd simpleRAG
 npm install
