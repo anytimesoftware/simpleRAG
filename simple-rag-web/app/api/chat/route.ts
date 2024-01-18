@@ -30,7 +30,7 @@ export async function POST(req: Request) {
   
   const client = new ChromaClient({ path: "http://localhost:8000" });
   const embedder = new OpenAIEmbeddingFunction({
-    openai_api_key: "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",
+    openai_api_key: process.env.OPENAI_API_KEY,
   });
   const collection = await client.getCollection({
     name: "context",
@@ -43,7 +43,7 @@ export async function POST(req: Request) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-        "prompt":`<|im_start|>system you are an ai query assistant who transforms user input into queries for a document database. transform the following user input into a question that will elicit useful information from the database<|im_end|>${messages[messages.length-1].content}<|im_start|>assistant`,
+        "prompt":`<|im_start|>system you are a helpful archival assistant ai. the user is asking you the following question, give me the exact search query you would use to get relevant information from a database. dont say things like "i would use" or "this is what I would search" just give me the search query itself<|im_end|>${messages[messages.length-1].content}<|im_start|>assistant`,
         "n_predict": 64,
         "stream": false
     })

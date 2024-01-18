@@ -58,7 +58,7 @@ async function chunkPDFSentences(pdfBuffer: any, chunkSize: number) {
 export async function POST(req: NextRequest, res: NextResponse) {
   const client = new ChromaClient({ path: "http://localhost:8000" });
   const embedder = new OpenAIEmbeddingFunction({
-    openai_api_key: "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",
+    openai_api_key: process.env.OPENAI_API_KEY,
   });
 
   try {
